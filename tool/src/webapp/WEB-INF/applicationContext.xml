@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!-- documented by aaronz@vt.edu -->
+<!-- RSF version by antranig@caret.cam.ac.uk - 
+	some contents moved from "spring-beans.xml" -->
+<beans>
+
+<bean class="org.sakaiproject.wordaday.tool.producers.WordADayProducer">
+	<property name="newsService" ref="org.sakaiproject.news.api.NewsService"/>
+</bean>
+
+	<!-- Control the location of the html templates (default: content/templates/) -->
+	<bean id="templateResolverStrategy" parent="CRITemplateResolverStrategy">
+		<property name="baseDirectory" value="templates/" />
+	</bean>
+
+</beans>

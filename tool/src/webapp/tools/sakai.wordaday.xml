@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<registration>
+	<tool id="sakai.wordaday"
+		title="Word A Day"
+		description="word a day from the OED">
+		<category name="course" />
+		<category name="project" />
+	</tool>	
+</registration>
