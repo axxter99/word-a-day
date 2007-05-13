@@ -20,15 +20,17 @@ import java.util.List;
 public class WordADayProducer implements DefaultView, ViewComponentProducer {
 
 	public static final String VIEW_ID = "wordaday";
+	private WordADay word;
+	private NewsItem newsItem;
+	
 	public String getViewID() {
 		// TODO Auto-generated method stub
 		return VIEW_ID;
 	}
 
-	//inject the word
-	private WordADay word;
-	public void setWord(WordADay w) {
-		word = w;
+	private String url;
+	public void setUrl(String u){
+		url = u;
 	}
 	
 	private NewsService newsService;
@@ -52,7 +54,7 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 		try {
 			Date check = new Date(System.currentTimeMillis() - 7200000);
 			if (word==null || word.getUpdated().before(check)) {
-				List items = newsService.getNewsitems("http://www.oed.com/rss.xml");
+				List items = newsService.getNewsitems(url);
 				NewsItem ni = (NewsItem)items.get(0);
 				word = new WordADay(ni.getTitle(),ni.getDescription());
 			}
