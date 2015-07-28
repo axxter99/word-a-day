@@ -12,7 +12,7 @@
 	</parent>
 	<name>Sakai Ward a day API</name>
 	<groupId>org.sakaiproject.wordaday</groupId>
-	<artifactId>sakai-wordaday-api</artifactId>
+	<artifactId>wordaday-api</artifactId>
 	<organization>
         <name>Sakai Project</name>
         <url>http://www.sakaiproject.org/</url>

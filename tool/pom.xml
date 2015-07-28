@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<name>Sakai World-a-day Tool</name>
 	<groupId>org.sakaiproject.wordaday</groupId>
@@ -16,11 +17,16 @@
 		<groupId>org.sakaiproject.wordaday</groupId>
 		<artifactId>wordaday</artifactId>
 		<version>11-SNAPSHOT</version>
-                <relativePath>../pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 
 	<dependencies>
+		<dependency>
+			<groupId>org.sakaiproject.wordaday</groupId>
+			<artifactId>wordaday-api</artifactId>
+			<version>11-SNAPSHOT</version>
+		</dependency>
 		<!-- RSF dependencies -->
 		<dependency>
 			<groupId>uk.org.ponder.sakairsf</groupId>
@@ -39,7 +45,7 @@
 			<version>${sakairsf.components.version}</version>
 			<type>war</type>
 		</dependency>
-	        <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
