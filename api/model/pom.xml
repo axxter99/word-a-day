@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>wordaday</artifactId>
+		<groupId>org.sakaiproject.wordaday</groupId>
+		<version>11-SNAPSHOT</version>
+		 <relativePath>../../pom.xml</relativePath>
+		<!--eval.version-->
+	</parent>
+	<name>Sakai Ward a day API</name>
+	<groupId>org.sakaiproject.wordaday</groupId>
+	<artifactId>sakai-wordaday-api</artifactId>
+	<organization>
+        <name>Sakai Project</name>
+        <url>http://www.sakaiproject.org/</url>
+    </organization>
+
+    <!-- you must deploy your API to shared or it will be 
+        inaccessible from your tool -->
+    <packaging>jar</packaging>
+    <properties>
+        <deploy.target>shared</deploy.target>
+        <evalsys.pom.basedir>${project.parent.basedir}</evalsys.pom.basedir>
+    </properties>
+
+		
+
+
+			<dependencies>
+				<dependency>
+					<groupId>org.sakaiproject.kernel</groupId>
+					<artifactId>sakai-kernel-api</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.sakaiproject.kernel</groupId>
+					<artifactId>sakai-kernel-util</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.sakaiproject.scheduler</groupId>
+					<artifactId>scheduler-api</artifactId>
+				</dependency>
+
+
+		<!-- Apache commons dependencies -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.sakaiproject.entitybroker</groupId>
+			<artifactId>entitybroker-api</artifactId>
+		</dependency>
+
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+        <resources>
+            <!-- include the readme.txt file and the java source files -->
+            <resource>
+                <directory>${basedir}</directory>
+                <includes>
+                    <include>*.txt</include>
+                    <include>src/**/*.java</include>
+                    <include>src/**/*.html</include>
+                    <include>src/**/*.xml</include>
+                    <include>src/**/*.properties</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

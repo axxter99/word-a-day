@@ -4,41 +4,23 @@
   <parent>
     <artifactId>master</artifactId>
     <groupId>org.sakaiproject</groupId>
-    <version>2.9-SNAPSHOT</version>
+    <version>11-SNAPSHOT</version>
     <relativePath>../master/pom.xml</relativePath>
   </parent>
-  <name>Sakai wordaday</name>
+  
+  
+  <name>Sakai word-a-day</name>
   <groupId>org.sakaiproject.wordaday</groupId>
-  <artifactId>uctjobs-base</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>wordaday</artifactId>
+  <version>11-SNAPSHOT</version>
   <packaging>pom</packaging>
+  
   <modules>
-    <module>api/model/sakai-wordaday-model-api</module>
-    <!--<module>scheduler-component</module>
-    <module>scheduler-component-shared</module>
-    _-->
-  </modules>
-<!-- We added all this to enable the Hudson build -->  
-     <repositories>
-    <repository>
-      <id>sakai-maven</id>
-      <name>Sakai Maven Repo</name>
-      <layout>default</layout>
-            <url>http://source.sakaiproject.org/maven2</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-        <repository>
-      <id>sakai-maven-snapshots</id>
-      <name>Sakai Maven Repo</name>
-      <layout>default</layout>
-            <url>http://source.sakaiproject.org/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-   </repositories>
+    <module>api/model</module>
+    <module>tool</module>
+  
+   </modules>
+
 
 
      
