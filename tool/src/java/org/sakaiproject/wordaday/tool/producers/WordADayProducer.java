@@ -57,14 +57,14 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 		// NewsChannel nc =
 		// newsService.getChannel("http://www.oed.com/rss.xml");
 		try {
-			//joda-time
+			//joda-time?
 			Date check = new Date(System.currentTimeMillis() - 7200000);
 			
 			log.info("Date: " + check.toString());
 			
-			if (word == null || word.getUpdated().before(check)) {
+			if (word == null || "".equals(word) || word.getUpdated().before(check)) {
 				List<NewsItem> items = newsService.getNewsitems(url);
-				NewsItem ni = (NewsItem) items.get(0);
+				NewsItem ni =  items.get(0);
 				word = new WordADay(ni.getTitle(), ni.getDescription());
 			}
             

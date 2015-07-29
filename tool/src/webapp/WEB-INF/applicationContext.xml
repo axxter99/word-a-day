@@ -5,13 +5,21 @@
 	some contents moved from "spring-beans.xml" -->
 <beans>
 
-<bean class="org.sakaiproject.wordaday.tool.producers.WordADayProducer">
-	<property name="newsService" ref="org.sakaiproject.news.api.NewsService"/>
-	<property name="url">
-	<!-- <value>http://www.oed.com/rss.xml</value>-->
-	<value>http://www.quotationspage.com/data/qotd.rss</value>
-	</property>
-</bean>
+	<!-- handles configuration of internationalization messages -->
+	<bean id="messageLocator" class="uk.org.ponder.springutil.SpringMessageLocator">
+		<property name="messageSource">
+			<bean
+				class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+				<property name="basename">
+					<value>WEB-INF/bundle/messages</value>
+				</property>
+				<property name="cacheSeconds">
+					<value>10</value>
+				</property>
+			</bean>
+		</property>
+		<property name="localeGetter" ref="requestLocaleProxy" />
+	</bean>
 
 	<!-- Control the location of the html templates (default: content/templates/) -->
 	<bean id="templateResolverStrategy" parent="CRITemplateResolverStrategy">
