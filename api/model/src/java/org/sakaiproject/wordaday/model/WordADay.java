@@ -41,6 +41,7 @@ public class WordADay {
 		updated = date;
 	}
 
+	
 	public Date getUpdated() {
 		return updated;
 	}

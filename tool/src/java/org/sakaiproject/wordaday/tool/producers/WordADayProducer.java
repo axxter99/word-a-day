@@ -1,11 +1,14 @@
 package org.sakaiproject.wordaday.tool.producers;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.news.api.NewsChannel;
 import org.sakaiproject.news.api.NewsItem;
 import org.sakaiproject.news.api.NewsService;
 import org.sakaiproject.wordaday.model.WordADay;
 
 import uk.org.ponder.rsf.components.UIContainer;
+import uk.org.ponder.rsf.components.UIMessage;
 import uk.org.ponder.rsf.components.UIOutput;
 import uk.org.ponder.rsf.components.UIVerbatim;
 import uk.org.ponder.rsf.view.ComponentChecker;
@@ -22,6 +25,8 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 	private WordADay word;
 	private NewsItem newsItem;
 
+	private static Log log = LogFactory.getLog(WordADay.class);
+	
 	public String getViewID() {
 		// TODO Auto-generated method stub
 		return VIEW_ID;
@@ -52,13 +57,18 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 		// NewsChannel nc =
 		// newsService.getChannel("http://www.oed.com/rss.xml");
 		try {
+			//joda-time
 			Date check = new Date(System.currentTimeMillis() - 7200000);
+			
+			log.info("Date: " + check.toString());
+			
 			if (word == null || word.getUpdated().before(check)) {
-				List items = newsService.getNewsitems(url);
+				List<NewsItem> items = newsService.getNewsitems(url);
 				NewsItem ni = (NewsItem) items.get(0);
 				word = new WordADay(ni.getTitle(), ni.getDescription());
 			}
-
+            
+			//UIMessage.make("link_download")
 			UIOutput.make(tofill, "word", word.getWord());
 			UIVerbatim.make(tofill, "description", word.getDefinition());
 		} catch (Exception e) {
