@@ -2,7 +2,6 @@ package org.sakaiproject.wordaday.tool.producers;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.sakaiproject.news.api.NewsChannel;
 import org.sakaiproject.news.api.NewsItem;
 import org.sakaiproject.news.api.NewsService;
 import org.sakaiproject.wordaday.model.WordADay;
@@ -26,7 +25,7 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 	private NewsItem newsItem;
 
 	private static Log log = LogFactory.getLog(WordADay.class);
-	
+
 	public String getViewID() {
 		// TODO Auto-generated method stub
 		return VIEW_ID;
@@ -57,18 +56,19 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 		// NewsChannel nc =
 		// newsService.getChannel("http://www.oed.com/rss.xml");
 		try {
-			//joda-time?
+			// joda-time?
 			Date check = new Date(System.currentTimeMillis() - 7200000);
-			
+
 			log.info("Date: " + check.toString());
-			
+
 			if (word == null || "".equals(word) || word.getUpdated().before(check)) {
 				List<NewsItem> items = newsService.getNewsitems(url);
-				NewsItem ni =  items.get(0);
+				// if ()
+				NewsItem ni = items.get(0);
 				word = new WordADay(ni.getTitle(), ni.getDescription());
 			}
-            
-			//UIMessage.make("link_download")
+
+
 			UIOutput.make(tofill, "word", word.getWord());
 			UIVerbatim.make(tofill, "description", word.getDefinition());
 		} catch (Exception e) {
