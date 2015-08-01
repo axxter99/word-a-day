@@ -61,9 +61,10 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 			Date check = new Date(System.currentTimeMillis());
 			
 			log.info("Date: " + check.toString());
-
-			if (word == null || "".equals(word) || word.getUpdated().before(check)) {
-				List<NewsItem> items = newsService.getNewsitems(url);
+			List<NewsItem> items = newsService.getNewsitems(url);
+			
+			//if (items == null || "".equals(items) || word.getUpdated().before(check)) {
+				
 				log.info("items:" + items.size());
 				int k = items.size();
 				for (int i = 0; i < k; i++) {
@@ -75,7 +76,7 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 					UIVerbatim.make(row, "description", word.getDefinition());
 					log.info(i);
 				}
-			}
+			//}
 
 
 		} catch (Exception e) {
