@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>org.sakaiproject.wordaday</groupId>
 		<artifactId>wordaday</artifactId>
-		<version>11-SNAPSHOT</version>
+		<version>1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -25,7 +25,6 @@
 		<dependency>
 			<groupId>org.sakaiproject.wordaday</groupId>
 			<artifactId>wordaday-api</artifactId>
-			<version>11-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 		 <groupId>org.sakaiproject</groupId>

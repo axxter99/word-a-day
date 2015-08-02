@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>wordaday</artifactId>
 		<groupId>org.sakaiproject.wordaday</groupId>
-		<version>11-SNAPSHOT</version>
+		<version>1-SNAPSHOT</version>
 		 <relativePath>../../pom.xml</relativePath>
 		<!--eval.version-->
 	</parent>
