@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.news.api.NewsItem;
 import org.sakaiproject.news.api.NewsService;
 import org.sakaiproject.wordaday.model.WordADay;
+import org.sakaiproject.wordaday.tool.util.WikiQuote;
 
 import uk.org.ponder.rsf.components.UIBranchContainer;
 import uk.org.ponder.rsf.components.UIContainer;
@@ -61,8 +62,8 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 			Date check = new Date(System.currentTimeMillis());
 			
 			log.info("Date: " + check.toString());
-			List<NewsItem> items = newsService.getNewsitems(url);
-			
+			//List<NewsItem> items = newsService.getNewsitems(url);
+			List<NewsItem> items = new WikiQuote.wikiQuote();
 			//if (items == null || "".equals(items) || word.getUpdated().before(check)) {
 				
 				log.info("items:" + items.size());
