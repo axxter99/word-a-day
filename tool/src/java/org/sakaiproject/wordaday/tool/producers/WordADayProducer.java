@@ -46,6 +46,12 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 
 	}
 
+	private WikiQuoteAPI wikiQuote;
+	
+	public WikiQuoteAPI getWikiQuote() {
+		return wikiQuote;
+	}
+
 	// we need an init method
 	public void init() {
 		//
@@ -63,7 +69,7 @@ public class WordADayProducer implements DefaultView, ViewComponentProducer {
 			
 			log.info("Date: " + check.toString());
 			//List<NewsItem> items = newsService.getNewsitems(url);
-			List<NewsItem> items = new WikiQuote.wikiQuote();
+			List<NewsItem> items = wikiQuote.wikiQuote();
 			//if (items == null || "".equals(items) || word.getUpdated().before(check)) {
 				
 				log.info("items:" + items.size());
