@@ -7,42 +7,45 @@
 		<artifactId>wordaday</artifactId>
 		<groupId>org.sakaiproject.wordaday</groupId>
 		<version>1-SNAPSHOT</version>
-		 <relativePath>../../pom.xml</relativePath>
-		<!--eval.version-->
+		<relativePath>../../pom.xml</relativePath>
+		<!--eval.version -->
 	</parent>
 	<name>Sakai Ward a day API</name>
 	<groupId>org.sakaiproject.wordaday</groupId>
 	<artifactId>wordaday-api</artifactId>
 	<organization>
-        <name>Sakai Project</name>
-        <url>http://www.sakaiproject.org/</url>
-    </organization>
+		<name>Sakai Project</name>
+		<url>http://www.sakaiproject.org/</url>
+	</organization>
 
-    <!-- you must deploy your API to shared or it will be 
-        inaccessible from your tool -->
-    <packaging>jar</packaging>
-    <properties>
-        <deploy.target>shared</deploy.target>
-        <evalsys.pom.basedir>${project.parent.basedir}</evalsys.pom.basedir>
-    </properties>
-
-		
+	<!-- you must deploy your API to shared or it will be inaccessible from 
+		your tool -->
+	<packaging>jar</packaging>
+	<properties>
+		<deploy.target>shared</deploy.target>
+		<evalsys.pom.basedir>${project.parent.basedir}</evalsys.pom.basedir>
+	</properties>
 
 
-			<dependencies>
-				<dependency>
-					<groupId>org.sakaiproject.kernel</groupId>
-					<artifactId>sakai-kernel-api</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.sakaiproject.kernel</groupId>
-					<artifactId>sakai-kernel-util</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.sakaiproject.scheduler</groupId>
-					<artifactId>scheduler-api</artifactId>
-				</dependency>
 
+
+	<dependencies>
+		<dependency>
+			<groupId>org.sakaiproject.kernel</groupId>
+			<artifactId>sakai-kernel-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sakaiproject.kernel</groupId>
+			<artifactId>sakai-kernel-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sakaiproject.scheduler</groupId>
+			<artifactId>scheduler-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.sakaiproject</groupId>
+			<artifactId>sakai-news-api</artifactId>
+		</dependency>
 
 		<!-- Apache commons dependencies -->
 		<dependency>
@@ -55,35 +58,35 @@
 			<artifactId>entitybroker-api</artifactId>
 		</dependency>
 
-    </dependencies>
+	</dependencies>
 
-    <build>
-        <sourceDirectory>src/java</sourceDirectory>
-        <resources>
-            <!-- include the readme.txt file and the java source files -->
-            <resource>
-                <directory>${basedir}</directory>
-                <includes>
-                    <include>*.txt</include>
-                    <include>src/**/*.java</include>
-                    <include>src/**/*.html</include>
-                    <include>src/**/*.xml</include>
-                    <include>src/**/*.properties</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<sourceDirectory>src/java</sourceDirectory>
+		<resources>
+			<!-- include the readme.txt file and the java source files -->
+			<resource>
+				<directory>${basedir}</directory>
+				<includes>
+					<include>*.txt</include>
+					<include>src/**/*.java</include>
+					<include>src/**/*.html</include>
+					<include>src/**/*.xml</include>
+					<include>src/**/*.properties</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

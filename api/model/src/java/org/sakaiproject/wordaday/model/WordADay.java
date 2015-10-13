@@ -2,6 +2,10 @@ package org.sakaiproject.wordaday.model;
 
 import java.util.Date;
 
+/**
+ * @author dhorwitz
+ *
+ */
 public class WordADay {
 
 	private String word;
@@ -20,10 +24,15 @@ public class WordADay {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public String getWord() {
 		return this.word;
 	}
 
+	
+	
 	public void setWord(String wordi) {
 		word = wordi;
 

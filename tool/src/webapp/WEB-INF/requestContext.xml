@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-<!--  Request-scope beans for TaskList - actually just the handler -->
+<!-- Request-scope beans for TaskList - actually just the handler -->
 <beans>
-<bean class="org.sakaiproject.wordaday.tool.producers.WordADayProducer">
-	<property name="newsService" ref="org.sakaiproject.news.api.NewsService"/>
-	<property name="url">
-	<!-- <value>http://www.oed.com/rss.xml</value>-->
-	<value>http://www.quotationspage.com/data/qotd.rss</value>
-	</property>
-</bean>
+	<bean class="org.sakaiproject.wordaday.tool.producers.WordADayProducer">
+		<property name="newsService" ref="org.sakaiproject.news.api.NewsService" />
+		<property name="wikiQuote" ref="org.sakaiproject.wordaday.tool.util.WikiQuote"/>
+
+		<property name="url">
+			<!-- <value>http://www.oed.com/rss.xml</value> -->
+			<value>http://www.quotationspage.com/data/qotd.rss</value>
+		</property>
+	</bean>
+ 
+ <bean id="org.sakaiproject.wordaday.tool.util.WikiQuote" class="org.sakaiproject.wordaday.tool.util.WikiQuoteImpl"/>
  
 </beans>
